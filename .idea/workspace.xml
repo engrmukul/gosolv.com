@@ -1,7 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2af1ddc9-c043-4d74-83f3-f03e59370ac9" name="Default Changelist" comment="" />
+    <list default="true" id="2af1ddc9-c043-4d74-83f3-f03e59370ac9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/html/.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/.env.example" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/.styleci.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/app/Console/Kernel.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/app/Exceptions/Handler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/app/Http/Controllers/API/BaseController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/app/Http/Controllers/API/BuyerController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/app/Http/Controllers/API/LoginController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/app/Http/Controllers/API/MessagingController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/app/Http/Controllers/API/NotificationController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/app/Http/Controllers/API/SellerController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/app/Http/Controllers/API/UserController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/app/Http/Controllers/Auth/ConfirmPasswordController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/app/Http/Controllers/Auth/ForgotPasswordController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/app/Http/Controllers/Auth/ResetPasswordController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/app/Http/Controllers/Auth/VerificationController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/app/Http/Controllers/Controller.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/app/Http/Kernel.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/app/Http/Middleware/Authenticate.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/app/Http/Middleware/CheckForMaintenanceMode.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/app/Http/Middleware/EncryptCookies.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/app/Http/Middleware/RedirectIfAuthenticated.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/app/Http/Middleware/TrimStrings.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/app/Http/Middleware/TrustProxies.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/app/Http/Middleware/VerifyCsrfToken.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/app/Providers/AuthServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/app/Providers/BroadcastServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/app/Providers/EventServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/app/Providers/RouteServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/app/User.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/artisan" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/bootstrap/app.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/bootstrap/cache/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/composer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/composer.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/config/app.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/config/auth.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/config/broadcasting.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/config/cache.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/config/database.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/config/filesystems.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/config/hashing.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/config/logging.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/config/mail.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/config/queue.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/config/services.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/config/session.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/config/view.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/database/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/database/factories/UserFactory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/database/migrations/2014_10_12_100000_create_password_resets_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/database/migrations/2019_08_19_000000_create_failed_jobs_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/phpunit.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/public/.htaccess" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/public/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/public/robots.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/public/web.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/resources/js/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/resources/js/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/resources/lang/en/auth.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/resources/lang/en/pagination.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/resources/lang/en/passwords.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/resources/lang/en/validation.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/resources/sass/app.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/resources/views/welcome.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/routes/api.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/routes/channels.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/routes/console.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/routes/web.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/server.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/storage/app/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/storage/app/public/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/storage/framework/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/storage/framework/cache/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/storage/framework/cache/data/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/storage/framework/sessions/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/storage/framework/testing/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/storage/framework/views/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/storage/logs/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/tests/CreatesApplication.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/tests/Feature/ExampleTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/tests/TestCase.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/tests/Unit/ExampleTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/webpack.mix.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,6 +204,7 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1SIlPyDsdJhEa8dLOR7uW50ieyQ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -140,12 +238,23 @@
       <option name="presentableId" value="Default" />
       <updated>1571258970597</updated>
       <workItem from="1571258972122" duration="1068000" />
-      <workItem from="1571298381480" duration="5996000" />
+      <workItem from="1571298381480" duration="16109000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
