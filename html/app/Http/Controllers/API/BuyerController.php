@@ -36,6 +36,7 @@ class BuyerController extends BaseController
         //PREPARE FEATURED LISTINGS
         $featured = $this->getFeaturedListing();
 
+        dd($featured);exit;
         //PREPARE CAT WISE LISTINGS
         $catListings = array();
         foreach ($mainCats as $key => $cat) {
@@ -92,7 +93,7 @@ class BuyerController extends BaseController
 
         $keywordList = DB::table('tagging_tags')
                         ->select('name as keyword')
-                        ->order_by('count', 'DESC')
+                        ->orderBy('count', 'DESC')
                         ->limit(10)
                         ->get();
  
@@ -101,8 +102,8 @@ class BuyerController extends BaseController
             'totalRecentlylView' => count($views),
             'totalFavorites' => count($favorites),
             'unReadMessageCount' => $unReadMessageCount,
-            'listingImageBaseUrl' => $this->config->item('listing_image_base_url'),
-            'catImageBaseUrl' => $this->config->item('cat_image_base_url'),
+            'listingImageBaseUrl' => '',//$this->config->item('listing_image_base_url'),
+            'catImageBaseUrl' => '',//$this->config->item('cat_image_base_url'),
             'cats' => $mainCats,
             'featuredListings' => $featured,
             'catListings' => $catListings,
@@ -122,21 +123,37 @@ class BuyerController extends BaseController
 
     private function getFeaturedListing()
     {
-        return DB::table('listings')->select('
-            listings.id,
-            listings.title,
-            listings.user_id,
-            LOWER(listings.email) as email,		
-            listings.country,
-            listings.description as description,
+         
+        $features = DB::table('listings')->select(
+            'listings.id', 
+            'listings.title',
+            'listings.user_id',
+            'listings.email as email'
+            )
+            ->select(DB::raw('GROUP_CONCAT(distinct(categories.title) SEPARATOR  "/") as keywords'))
+            ->leftJoin('category_listing AS k', function($join){
+                    $join->on(DB::raw("find_in_set(k.listing_id, listings.id)", "<>" , DB::raw("'0'")));
+                })
+            ->leftJoin("categories", "categories.id = k.category_id")
+            ->where('categories.parent_id', 0)            
+            ->get();
+
+        dd($features);
+        
+        return \DB::table('listings')->select(
+            'listings.id',
+            'listings.title',
+            'listings.user_id',
+            'LOWER(listings.email) as email',		
+            'listings.country',
+            'listings.description as description',
+            'images.image as banner_image',
+            'listings.featured as is_featured',
+            'listings.isVerified as is_verified',
+            'coalesce(round(sum(ratings.rating)/count(ratings.rating)), 0) as rating',
+            'GROUP_CONCAT(distinct(categories.title) SEPARATOR  "/") as keywords'
             
-            images.image as banner_image,
-            listings.featured as is_featured,
-            listings.isVerified as is_verified,
-            coalesce(round(sum(ratings.rating)/count(ratings.rating)), 0) as rating,
-            GROUP_CONCAT(distinct(categories.title) SEPARATOR  "/") as keywords
-            
-        ')
+        )
         ->where('listings.featured', 1)
         ->leftJoin("images", "images.imageable_id = listings.id")
         ->leftJoin("ratings", "ratings.ratingable_id = listings.id")
@@ -145,7 +162,7 @@ class BuyerController extends BaseController
         ->where('categories.parent_id', 0)
         ->where('listings.isActive', 1)
         ->limit(10)
-        ->group_by('listings.id')
+        ->groupBy('listings.id')
         ->get();
     }
 
@@ -158,7 +175,7 @@ class BuyerController extends BaseController
         $listingIdArray = DB::table('category_listing')->select('listing_id')->where('category_id', $catID)->get();
 
         if (!empty($listingIdArray)) {
-            $query = $this->db->select('
+            return \DB::table('listings')->select('
             listings.id,
             listings.title,
             listings.user_id,
@@ -172,18 +189,17 @@ class BuyerController extends BaseController
             GROUP_CONCAT(distinct(categories.title) SEPARATOR  "/") as keywords
             
         ')
-                ->where_in('listings.id', $listingIdArray)
-                ->where('listings.featured', 0)
-                ->join("images", "images.imageable_id = listings.id", "left", false)
-                ->join("ratings", "ratings.ratingable_id = listings.id", "left", false)
-                ->join("category_listing AS k", "find_in_set(k.listing_id, listings.id)<> 0", "left", false)
-                ->join("categories", "categories.id = k.category_id", "left", false)
-                ->where('categories.parent_id', 0)
-                ->where('listings.isActive', 1)
-                ->limit(10)
-                ->group_by('listings.id')
-                ->get('listings');
-            return $query->result();
+            ->where_in('listings.id', $listingIdArray)
+            ->where('listings.featured', 0)
+            ->leftJoin("images", "listings.id = images.imageable_id")
+            ->leftJoin("ratings", "listings.id = ratings.ratingable_id")
+            ->leftJoin("category_listing AS k", "find_in_set(k.listing_id, listings.id)<> 0")
+            ->leftJoin("categories", "k.category_id = categories.id")
+            ->where('categories.parent_id', 0)
+            ->where('listings.isActive', 1)
+            ->limit(10)
+            ->groupBy('listings.id')
+            ->get();
         } else {
             return array();
         }
@@ -191,7 +207,7 @@ class BuyerController extends BaseController
 
     private function getRecentlyViewList( $user_id )
     {
-        return DB::table('trackables')->select('
+        return \DB::table('trackables')->select('
 		
 			listings.id,
 			listings.title,
@@ -214,15 +230,15 @@ class BuyerController extends BaseController
 			->leftJoin("categories", "k.category_id = categories.id")
 			->where('categories.parent_id', 0)
 			->where('listings.isActive', 1)
-			->group_by('listings.id')
-			->order_by('trackables.created_at', 'DESC')
+			->groupBy('listings.id')
+			->orderBy('trackables.created_at', 'DESC')
 			->limit(20)
 			->get();
     }
 
     private function getFavoriteList( $user_id )
     {
-        return DB::table('favouriteables')->select('
+        return \DB::table('favouriteables')->select('
 		
 			listings.id,
 			listings.title,
@@ -245,13 +261,13 @@ class BuyerController extends BaseController
 			->leftJoin("categories", "k.category_id = categories.id", "left")
 			->where('categories.parent_id', 0)
 			->where('listings.isActive', 1)			
-			->group_by('listings.id')
+			->groupBy('listings.id')
 			->get();
     }
 
     public function getAllCategory()
     {
-        $mainCats = DB::table('categories')->select('id','title as name')->where('id', 1)->where('parent_id', 0)->get();
+        $mainCats = \DB::table('categories')->select('id','title as name')->where('id', 1)->where('parent_id', 0)->get();
 
 		$allCategory = array();
 
