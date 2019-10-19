@@ -44,7 +44,7 @@ Route::post('contactus', 'API\PageController@contactus');
 //DASHBOARD
 Route::post('dashboard', 'API\BuyerController@dashboard');
 Route::post('company', 'API\BuyerController@company');
-Route::post('search', 'API\BuyerController@searchListing'); //PREVIOUSLY USED: dashboard / listingSearch
+Route::post('search', 'API\BuyerController@searchListing'); 
 Route::post('more', 'API\BuyerController@moreListing');
 Route::post('topKeywords', 'API\BuyerController@topKeywordList');
 
